@@ -27,9 +27,7 @@ const userSchema = new Schema(
         },
         fullName:{
             type:string,
-            required:true
-
-
+            
         },
         avatar:{
             type:string,
