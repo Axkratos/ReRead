@@ -1,6 +1,7 @@
 import express, { urlencoded } from 'express'
-import cookieParser from 'cookieParser'
-const dotenv = require('dotenv')
+import cookieParser from "cookie-parser";
+
+import cors from 'cors'
 
 const app=express();
 //k ra kasto access dini
