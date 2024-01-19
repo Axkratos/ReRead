@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import mongoose,{Schema} from "mongoose";
 
 
 const userSchema = new Schema(
     {
 
         username:{
-            type:string,
+            type:String,
             required:true,
             unique:true,
             trim:true,
@@ -14,32 +14,32 @@ const userSchema = new Schema(
         },
 
         email:{
-            type:string,
+            type:String,
             required:true,
             unique:true,
             
             
         },
-        phone:{
-            type:string,
-            unique:true,
-            trim:true
-        },
+        // phone:{
+        //     type:String,
+        //     unique:true,
+            
+        // },
         fullName:{
-            type:string,
+            type:String,
             
         },
         avatar:{
-            type:string,
+            type:String,
 
 
         },
         password:{
-            type:string,
+            type:String,
             required:[true,"Password is required"]
         },
         location:{
-            type:string,
+            type:String,
         }
     },
     {
