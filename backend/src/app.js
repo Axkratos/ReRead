@@ -1,6 +1,7 @@
 import express, { urlencoded } from 'express'
 import cookieParser from 'cookie-parser'
 import userRouter from './routes/user.route.js'
+import bookRouter from './routes/book.route.js'
 
 import cors from 'cors'
 
@@ -30,5 +31,6 @@ app.use(cookieParser())
 
 //related functionality ko lagi routes dini
 app.use('/api/v1/user', userRouter)
+app.use('/api/v1/book', bookRouter)
 
 export { app }
