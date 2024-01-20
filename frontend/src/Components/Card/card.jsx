@@ -1,5 +1,7 @@
+// BookCard.js
+
 import React, { useState, useEffect } from 'react';
-import './home.css';
+import './card.css';
 
 const BookCard = ({ bookId }) => {
   const [bookData, setBookData] = useState(null);
@@ -24,9 +26,12 @@ const BookCard = ({ bookId }) => {
     return null; // You can render a loading spinner or placeholder while data is being fetched
   }
 
+  // Filter the bookData array to include only books with the condition "Used"
+  const usedBooks = bookData.filter((book) => book.condition === 'Used');
+
   return (
     <div className="book-card">
-      {bookData.map((book) => (
+      {usedBooks.map((book) => (
         <div key={book._id} className="individual-card">
           <img src={book.photo} alt={book.title} className="book-photo" />
           <div className="book-details">
