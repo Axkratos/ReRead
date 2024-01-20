@@ -1,0 +1,86 @@
+/* Navbar.css */
+.custom-navbar {
+    background-color: white !important;
+    font-size: 15px; /* Adjust the font size as needed */
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 70px;
+    box-shadow: 0px 0px 20px #ccc;
+    position: sticky !important;
+    --webkit-position: sticky;
+    top: 0;
+    
+    z-index: 9999999999999999999999999999;
+  }
+  .horiz{
+    display: inline-flex;
+  }
+  
+  .custom-navbar .logo {
+    font-size: 30px;
+    color: #425d83;
+    font-weight: bolder;
+  }
+  
+  .items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .centeritem {
+    margin: 5px 30px;
+    display: flex;
+    width: 600px;
+    justify-content: center;
+  }
+  
+  .item {
+    margin: 5px 10px;
+    color: black !important;
+    position: relative; /* Add position relative */
+    padding: 20px;
+  }
+  
+  .item:hover {
+    border-bottom: 3px solid #425d83; /* Add border at the bottom on hover */
+    font-weight: bolder; /* Make the text bolder on hover */
+  }
+  
+  .user {
+    margin-left: 60px;
+    color: black;
+     display: flex;
+  }
+  
+  
+  /* YourComponent.css */
+  .transparent-button {
+      background: transparent;
+      padding: 5px 15px;
+    margin-right: 10px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid #425d83 !important;
+      border-radius: 25px;
+      outline: none;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+      text-align: center;
+      
+    }
+    
+    .transparent-button:hover {
+      background-color: #425d83;
+      
+    }
+    .justify-content-end{
+        display: inline-flex;
+        justify-content: end;
+    }
+    
