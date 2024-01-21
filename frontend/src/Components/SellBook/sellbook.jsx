@@ -13,6 +13,7 @@ const SellBook = () => {
     genre: '',
     location: '',
     photo: null,
+    type: '', // New field for book type
   });
 
   const handleChange = (e) => {
@@ -41,6 +42,7 @@ const SellBook = () => {
         genre,
         location,
         photo,
+        type,
       } = formData;
 
       const formDataToSubmit = new FormData();
@@ -52,6 +54,7 @@ const SellBook = () => {
       formDataToSubmit.append('genre', genre);
       formDataToSubmit.append('location', location);
       formDataToSubmit.append('photo', photo);
+      formDataToSubmit.append('type', type); // Add type to form data
 
       const response = await axios.post(
         'http://localhost:5001/api/v1/book/books',
@@ -130,6 +133,20 @@ const SellBook = () => {
               {/* Add more conditions as needed */}
             </Form.Control>
           </Form.Group>
+          <Form.Group controlId="formType">
+            <Form.Label>Type</Form.Label>
+            <Form.Control
+              as="select"
+              name="type"
+              value={formData.type}
+              onChange={handleChange}
+            >
+              <option value="">Select Type</option>
+              <option value="Competitive Books">Competitive Books</option>
+              <option value="Novels">Novels</option>
+              {/* Add more types as needed */}
+            </Form.Control>
+          </Form.Group>
           <Form.Group controlId="formGenre">
             <Form.Label>Genre</Form.Label>
             <Form.Control
@@ -155,6 +172,7 @@ const SellBook = () => {
               onChange={handleChange}
             />
           </Form.Group>
+          
           <Form.Group controlId="formPhoto">
             <Form.Label>Book Cover Photo</Form.Label>
             <Form.Control
