@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container } from 'react-bootstrap';
-
+import './register.css'
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
