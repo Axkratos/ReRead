@@ -10,11 +10,14 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  type: {
+    type: String,
+  },
   description: {
     type: String,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   condition: {
@@ -32,7 +35,7 @@ const bookSchema = new mongoose.Schema({
 //     required: true,
 //   },
   location:{
-    type:Number,
+    type:String,
     required:true
   },
   photo: {

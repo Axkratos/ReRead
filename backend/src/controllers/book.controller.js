@@ -4,7 +4,7 @@ import { uploadOnCloudinary } from '../utils/cloudinary.js'
 // Create a new book
 export const createBook = async (req, res) => {
   try {
-    const { title, author, description, price, condition, genre, location } =
+    const { title, author, description, price, condition, genre, location,type } =
       req.body
     const img = req.file.path
     const imgObj = await uploadOnCloudinary(img)
@@ -12,9 +12,11 @@ export const createBook = async (req, res) => {
       title,
       author,
       description,
+      type,
       price,
       genre,
       location,
+      condition,
       photo: imgObj.url, // Save the Cloudinary URL
     })
 
