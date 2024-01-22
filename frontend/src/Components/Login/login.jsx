@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -27,6 +29,7 @@ const Login = () => {
       });
 
       console.log('Login successful:', response.data);
+      navigate('/')
       // Store the token in localStorage or a state management solution
     } catch (error) {
       console.error('Error during login:', error.message);
