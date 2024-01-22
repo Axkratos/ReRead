@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color:#dcc8c8;
   }
   
   .register-form-controller {
@@ -10,7 +11,7 @@
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #fff;
+    background-color:#dcc8c8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
@@ -31,7 +32,7 @@
   .form-control {
     width: 100%;
     padding: 8px;
-    font-size: 16px;
+    font-size: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-top: 5px;
@@ -50,7 +51,7 @@
   }
   
   .register-button:hover {
-    background-color: #0056b3;
+    background-color: #1e7ee5;
   }
   
   .d-flex {
@@ -73,5 +74,4 @@
     margin-top: 16px;
   }
   
-  /* Add any additional styles based on your design preferences */
   

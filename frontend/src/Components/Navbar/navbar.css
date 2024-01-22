@@ -4,7 +4,7 @@
   font-size: 20px;
   height: 60px;
   padding: 0;
-
+  box-sizing:border-box;
   
   background-color: #101111;
   .logo {
@@ -38,7 +38,7 @@
     cursor: pointer;
     margin-right: 15px;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition for button color */
+    transition: col; /* Smooth transition for button color */
   }
 
   .transparent-button:hover {
