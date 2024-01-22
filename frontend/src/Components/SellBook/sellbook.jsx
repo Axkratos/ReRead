@@ -19,6 +19,7 @@ const SellBook = () => {
     genre: '',
     location: '',
     photo: null,
+    sellerName: localStorage.getItem('User'),
     type: '', // New field for book type
   });
 
@@ -59,6 +60,7 @@ const SellBook = () => {
       formDataToSubmit.append('condition', condition);
       formDataToSubmit.append('genre', genre);
       formDataToSubmit.append('location', location);
+      formDataToSubmit.append('sellerName', localStorage.getItem('User'));
       formDataToSubmit.append('photo', photo);
       formDataToSubmit.append('type', type); // Add type to form data
 

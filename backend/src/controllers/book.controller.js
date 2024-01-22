@@ -4,8 +4,18 @@ import { uploadOnCloudinary } from '../utils/cloudinary.js'
 // Create a new book
 export const createBook = async (req, res) => {
   try {
-    const { title, author, description, price, condition, genre, location,type } =
-      req.body
+    const {
+      title,
+      author,
+      description,
+      price,
+      condition,
+      genre,
+      location,
+      type,
+      sellerName,
+    } = req.body
+    console.log(sellerName)
     const img = req.file.path
     const imgObj = await uploadOnCloudinary(img)
     const newBook = await Book.create({
@@ -17,11 +27,12 @@ export const createBook = async (req, res) => {
       genre,
       location,
       condition,
+      sellerName,
       photo: imgObj.url, // Save the Cloudinary URL
     })
 
     console.log(newBook)
-  
+
     res.status(201).json({ success: 'ok', newBook })
   } catch (error) {
     // Handle errors
@@ -32,6 +43,7 @@ export const createBook = async (req, res) => {
 
 // Get all books
 export const getAllBooks = async (req, res) => {
+  const token = req.cookies.token
   try {
     const allBooks = await Book.find()
     res.status(200).json(allBooks)
@@ -44,6 +56,7 @@ export const getAllBooks = async (req, res) => {
 // Get a specific book by ID
 export const getBookById = async (req, res) => {
   const { id } = req.params
+  const token = req.cookies.token
 
   try {
     const book = await Book.findById(id)
@@ -61,6 +74,7 @@ export const getBookById = async (req, res) => {
 // Update a book by ID
 export const updateBookById = async (req, res) => {
   const { id } = req.params
+  const token = req.cookies.token
 
   try {
     const updatedBook = await Book.findByIdAndUpdate(id, req.body, {
@@ -80,6 +94,7 @@ export const updateBookById = async (req, res) => {
 // Delete a book by ID
 export const deleteBookById = async (req, res) => {
   const { id } = req.params
+  const token = req.cookies.token
 
   try {
     const deletedBook = await Book.findByIdAndDelete(id)
