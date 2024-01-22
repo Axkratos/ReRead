@@ -28,7 +28,10 @@ const Login = () => {
         password,
       });
 
-      console.log('Login successful:', response.data);
+      // console.log('Login successful:', response.data);
+      localStorage.setItem('accessToken',response.data.token);
+      localStorage.setItem('User',response.data.user.username);
+      // console.log(localStorage.getItem('accessToken'));
       navigate('/')
       // Store the token in localStorage or a state management solution
     } catch (error) {

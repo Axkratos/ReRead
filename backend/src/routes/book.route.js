@@ -1,28 +1,29 @@
-import express from 'express';
+import express from 'express'
 import {
   createBook,
   getAllBooks,
   getBookById,
   updateBookById,
   deleteBookById,
-} from '../controllers/book.controller.js';
-import {upload} from "../middlewares/multer.middleware.js"
+} from '../controllers/book.controller.js'
+import { upload } from '../middlewares/multer.middleware.js'
+import { verifyJWT } from '../middlewares/auth.middleware.js'
 
-const router = express.Router();
+const router = express.Router()
 
 // Create a new book
-router.post('/books',upload.single("photo"), createBook);
+router.post('/books', upload.single('photo'), createBook)
 
 // Get all books
-router.get('/books', getAllBooks);
+router.get('/books', verifyJWT, getAllBooks)
 
 // Get a specific book by ID
-router.get('/books/:id', getBookById);
+router.get('/books/:id', getBookById)
 
 // Update a book by ID
-router.put('/books/:id', updateBookById);
+router.put('/books/:id', updateBookById)
 
 // Delete a book by ID
-router.delete('/books/:id', deleteBookById);
+router.delete('/books/:id', deleteBookById)
 
-export default router;
+export default router

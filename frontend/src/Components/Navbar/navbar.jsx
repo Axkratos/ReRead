@@ -3,7 +3,8 @@ import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './navbar.css';
 
-const AppNavbar = ({ isAuthenticated }) => {
+const AppNavbar = () => {
+  const isAuthenticated = localStorage.getItem('accessToken'); 
   return (
     <Navbar bg="light" expand="lg" className="custom-navbar">
       <Container className="horiz">
@@ -36,14 +37,14 @@ const AppNavbar = ({ isAuthenticated }) => {
           <Nav>
             {isAuthenticated ? (
               <NavDropdown title="User" id="basic-nav-dropdown">
-                <LinkContainer to="/my-profile">
+                <LinkContainer to="/user-profile">
                   <NavDropdown.Item>My Profile</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/my-posts">
+                <LinkContainer to="/user-post">
                   <NavDropdown.Item>My Posts</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
-                <LinkContainer to="/logout">
+                <LinkContainer to="/">
                   <NavDropdown.Item>Logout</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
