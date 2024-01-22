@@ -1,65 +1,87 @@
-/* home.css */
-
-/* Container for all books section */
 .all-books-section,
-.used-books-section {
-  margin-bottom: 20px;
+.used-books-section,
+.fiction-books-section {
+  margin-top: 20px;
 }
 
-/* Styling for individual book cards */
-.individual-card-link {
-  text-decoration: none;
-  color: inherit;
+.book-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.individual-card {
+.book-card h2 {
+  text-align: center;
+}
+
+.book-card > div {
+  cursor: pointer;
+  padding: 10px;
   box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  width: 280px;
-  margin: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Styling for book photo */
-  .book-photo {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
-  }
-
-  /* Styling for book details */
-  .book-details {
-    padding: 15px;
-
-    /* Styling for book name */
-    .book-name {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: #333;
-    }
-
-    /* Styling for book location and price */
-    .book-location,
-    .book-price {
-      font-size: 14px;
-      color: #555;
-    }
-  }
+  text-align: center;
 }
 
-/* Adjustments for responsiveness */
-@media (max-width: 768px) {
-  .individual-card {
-    width: 80%;
-    margin: 10px auto;
-  }
+.book-photo {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+
+}
+
+.book-name {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.book-location,
+.book-price {
+  font-size: 14px;
+  color: #555;
+}
+
+
+/* Styling for the selected book details */
+#selected-book {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.selected-book-card {
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.selected-book-card img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.selected-book-details {
+  margin-top: 20px;
+}
+
+.selected-book-details h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.selected-book-details p {
+  font-size: 16px;
+  color: #555;
 }

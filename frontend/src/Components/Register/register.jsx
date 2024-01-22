@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container } from 'react-bootstrap';
 import './register.css'
+import { useNavigate} from 'react-router-dom';
 const Register = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -36,6 +38,7 @@ const Register = () => {
       });
 
       console.log('Registration successful:', response.data);
+      navigate("/signin")
     } catch (error) {
       console.error('Error during registration:', error.message);
     }

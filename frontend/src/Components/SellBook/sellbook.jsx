@@ -2,9 +2,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container } from 'react-bootstrap';
+
 import './sellbook.css'
 
+import { useNavigate } from 'react-router-dom';
+
+
 const SellBook = () => {
+  const navigate=useNavigate()
   const [formData, setFormData] = useState({
     title: '',
     author: '',
@@ -68,6 +73,7 @@ const SellBook = () => {
       );
 
       console.log('Book added successfully:', response.data);
+      navigate('/')
       // Handle the response as needed (e.g., redirect to a success page)
     } catch (error) {
       console.error('Error during book addition:', error.message);

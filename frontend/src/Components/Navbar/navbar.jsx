@@ -1,18 +1,18 @@
-// src/components/Navbar.js
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './navbar.css';
 
-const AppNavbar = () => {
+const AppNavbar = ({ isAuthenticated }) => {
   return (
     <Navbar bg="light" expand="lg" className="custom-navbar">
-      <Container className='horiz'>
+      <Container className="horiz">
         {/* Left Side */}
         <Navbar.Brand href="/" className="logo">
           Logo
         </Navbar.Brand>
-        {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+
+        
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -22,33 +22,41 @@ const AppNavbar = () => {
             <LinkContainer to="/used-books">
               <Nav.Link className="nav-link">Used Book</Nav.Link>
             </LinkContainer>
-
-
             <LinkContainer to="/competitive-books">
               <Nav.Link className="nav-link">Competitive Books</Nav.Link>
             </LinkContainer>
-
             <LinkContainer to="/novels">
               <Nav.Link className="nav-link">Novels</Nav.Link>
             </LinkContainer>
-
-            
-              
-            
-
-           
           </Nav>
         </Navbar.Collapse>
 
         {/* Right Side */}
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <LinkContainer to="/signin">
-              <Nav.Link className="transparent-button">Login</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/signup">
-              <Nav.Link className="transparent-button">Register</Nav.Link>
-            </LinkContainer>
+            {isAuthenticated ? (
+              <NavDropdown title="User" id="basic-nav-dropdown">
+                <LinkContainer to="/my-profile">
+                  <NavDropdown.Item>My Profile</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/my-posts">
+                  <NavDropdown.Item>My Posts</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Divider />
+                <LinkContainer to="/logout">
+                  <NavDropdown.Item>Logout</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+            ) : (
+              <>
+                <LinkContainer to="/signin">
+                  <Nav.Link className="transparent-button">Login</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/signup">
+                  <Nav.Link className="transparent-button">Register</Nav.Link>
+                </LinkContainer>
+              </>
+            )}
             <LinkContainer to="/sell-book">
               <Nav.Link className="transparent-button">Sell Book</Nav.Link>
             </LinkContainer>
