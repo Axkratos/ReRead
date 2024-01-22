@@ -2,6 +2,7 @@
 .used-books-section,
 .fiction-books-section {
   margin-top: 20px;
+  overflow:hidden;
 }
 
 .book-card {

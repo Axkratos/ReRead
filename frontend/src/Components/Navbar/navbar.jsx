@@ -46,8 +46,8 @@ const AppNavbar = () => {
 
         {/* Right Side */}
         <Navbar.Collapse className="justify-content-end">
-          <Nav>
-            {isAuthenticated ? (
+          <Nav className='prayojan'>
+            {!isAuthenticated ? (
               <NavDropdown title="User" id="basic-nav-dropdown">
                 <LinkContainer to="/user-profile">
                   <NavDropdown.Item>My Profile</NavDropdown.Item>
