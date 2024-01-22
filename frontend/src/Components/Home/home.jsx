@@ -14,7 +14,7 @@ const Home = () => {
   const [fictionBooks, setFictionBooks] = useState([]);
   const [selectedBookId, setSelectedBookId] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
-  
+  console.log(localStorage.getItem('User'))
   useEffect(() => {
     const fetchData = async () => {
       try {
