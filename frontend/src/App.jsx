@@ -36,7 +36,7 @@ function App() {
 <Route path="/sell-book" element={<SellBook />}></Route>
 <Route path="/books/:bookId" element={<BookDetail/>} />
 <Route path="/user-profile" element={<UserProfile />}></Route>
-<Route path="/user-post" element={<UserProfile />}></Route>
+<Route path="/user-post" element={<UserPost />}></Route>
 
 
 </Routes>

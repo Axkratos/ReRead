@@ -11,7 +11,15 @@ const Novel = ({ bookId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/v1/book/books');
+        const token = localStorage.getItem('accessToken')
+        const response = await fetch('http://localhost:5001/api/v1/book/books'
+        ,{
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+        );
         const data = await response.json();
         setBookData(data);
       } catch (error) {
