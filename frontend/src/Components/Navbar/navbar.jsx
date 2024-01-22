@@ -1,10 +1,22 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './navbar.css';
 
 const AppNavbar = () => {
-  const isAuthenticated = localStorage.getItem('accessToken'); 
+  const isAuthenticated = localStorage.getItem('accessToken');
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove data from localStorage
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('User');
+
+    // Redirect to home
+    navigate('/');
+  };
+
   return (
     <Navbar bg="light" expand="lg" className="custom-navbar">
       <Container className="horiz">
@@ -13,7 +25,7 @@ const AppNavbar = () => {
           Logo
         </Navbar.Brand>
 
-        
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -44,9 +56,7 @@ const AppNavbar = () => {
                   <NavDropdown.Item>My Posts</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
-                <LinkContainer to="/">
-                  <NavDropdown.Item>Logout</NavDropdown.Item>
-                </LinkContainer>
+                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               </NavDropdown>
             ) : (
               <>
