@@ -11,7 +11,14 @@ const Novel = ({ bookId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/v1/book/books');
+        const token = localStorage.getItem('accessToken')
+        const response = await fetch('http://localhost:5001/api/v1/book/books'
+        ,{
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        });
         const data = await response.json();
         setBookData(data);
       } catch (error) {
@@ -27,7 +34,7 @@ const Novel = ({ bookId }) => {
   }
 
   // Filter the bookData array to include only books with the condition "Used"
-  const usedBooks = bookData.filter((book) => book.type === 'Novel');
+  const usedBooks = bookData.filter((book) => book.type === 'Novels');
 
   const openBookDetail = (book) => {
     setSelectedBook(book);
