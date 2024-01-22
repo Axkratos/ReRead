@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Container, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import './userpost.css'
+import './userpost.css';
 
 const UserPosts = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const UserPosts = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    author: '', // Add other fields as needed
+    author: '',
     location: '',
     condition: '',
   });
@@ -23,7 +23,7 @@ const UserPosts = () => {
       try {
         const token = localStorage.getItem('accessToken');
         const response = await axios.get(
-          `http://localhost:5001/api/v1/book/books?sellerName=${localStorage.getItem('User')}`,
+          `http://localhost:5001/api/v1/book/books`,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -31,15 +31,19 @@ const UserPosts = () => {
             },
           }
         );
-        setUserPosts(response.data);
+  
+        
+        const filteredPosts = response.data.filter(post => post.sellerName === localStorage.getItem('User'));
+        
+        setUserPosts(filteredPosts);
       } catch (error) {
         console.error('Error fetching user posts:', error);
       }
     };
-
+  
     fetchUserPosts();
   }, []);
-
+  
   const handleUpdateClick = (postId) => {
     const selectedPost = userPosts.find((post) => post._id === postId);
     setFormData({

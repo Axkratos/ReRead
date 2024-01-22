@@ -25,7 +25,7 @@ const AppNavbar = () => {
           Logo
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -47,7 +47,7 @@ const AppNavbar = () => {
         {/* Right Side */}
         <Navbar.Collapse className="justify-content-end">
           <Nav className='prayojan'>
-            {!isAuthenticated ? (
+            {isAuthenticated ? (
               <NavDropdown title="User" id="basic-nav-dropdown">
                 <LinkContainer to="/user-profile">
                   <NavDropdown.Item>My Profile</NavDropdown.Item>
