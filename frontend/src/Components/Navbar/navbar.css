@@ -2,7 +2,7 @@
   background-color: #fff; /* Navbar background color */
   border-bottom: 1px solid #ddd; /* Border color at the bottom */
   font-size: 20px;
-  height: 60px;
+  height: 100px;
   padding: 0;
   box-sizing:border-box;
   
@@ -60,3 +60,62 @@
     font-weight: bold; /* Highlight active link by making text bold */
   }
 }
+/* Add this CSS block to style the dropdown in the user section */
+
+/* Dropdown styling */
+.custom-navbar .dropdown-menu {
+  background-color: #101111; /* Dropdown background color */
+  border: 1px solid #007bff; /* Dropdown border color */
+}
+
+.prayojan {
+  display: flex;
+}
+#basic-nav-dropdown.dropdown-menu {
+  flex-direction: column;
+}
+
+#basic-nav-dropdown.dropdown-menu .dropdown-item {
+  /* Customize the appearance of dropdown items */
+  color: #f8f4f4; /* Dropdown item text color */
+}
+
+#basic-nav-dropdown.dropdown-menu .dropdown-item:hover {
+  /* Change dropdown item background color on hover */
+  background-color: #007bff;
+  color: #fff;
+}
+
+#basic-nav-dropdown.dropdown-menu .dropdown-divider {
+  /* Customize the appearance of the dropdown divider */
+  border-top: 1px solid #007bff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Dropdown item styling */
+.custom-navbar .dropdown-item {
+  color: #f8f4f4; /* Dropdown item text color */
+}
+
+.custom-navbar .dropdown-item:hover {
+  background-color: #007bff; /* Change dropdown item background color on hover */
+  color: #fff; /* Change dropdown item text color on hover */
+}
+
+/* Divider styling */
+.custom-navbar .dropdown-divider {
+  border-top: 1px solid #007bff; /* Divider color */
+}
+
+/* Caret icon styling */
+.custom-navbar .caret {
+  border-top-color: #f8f4f4; /* Caret color */
+}
+
+/* Adjust the shadow of the dropdown */
+.custom-navbar .dropdown-menu {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Dropdown box shadow */
+}
+
