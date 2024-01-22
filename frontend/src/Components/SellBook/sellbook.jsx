@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container } from 'react-bootstrap';
+import './sellbook.css'
 
 const SellBook = () => {
   const [formData, setFormData] = useState({
