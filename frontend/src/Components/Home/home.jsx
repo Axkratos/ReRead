@@ -1,60 +1,109 @@
-// BookCard.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SearchForm from './searchform.jsx';
+import SearchResults from './searchresult.jsx';
+import BookDetails from '../Card/card.jsx';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './home.css';
-import BookDetail from '../Card/card.jsx'; // Import the BookDetail component
 
-const BookCard = ({ bookId }) => {
-  const [bookData, setBookData] = useState(null);
-  const [selectedBook, setSelectedBook] = useState(null);
+const Home = () => {
+  const [allBooks, setAllBooks] = useState([]);
+  const [usedBooks, setUsedBooks] = useState([]);
+  const [fictionBooks, setFictionBooks] = useState([]);
+  const [selectedBookId, setSelectedBookId] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:5001/api/v1/book/books');
         const data = await response.json();
-        setBookData(data);
+        setAllBooks(data);
+        setUsedBooks(data.filter((book) => book.condition === 'Used'));
+        setFictionBooks(data.filter((book) => book.genre === 'Fiction'));
       } catch (error) {
         console.error('Error fetching book data:', error);
       }
     };
 
     fetchData();
-  }, [bookId]);
+  }, []);
 
-  if (!bookData) {
-    return null;
-  }
+  const handleSearch = (params) => {
+    const filteredBooks = allBooks.filter((book) => {
+      const titleMatch = book.title.toLowerCase().includes(params.title.toLowerCase());
+      const typeMatch = params.type ? book.type === params.type : true;
+      const genreMatch = params.genre ? book.genre === params.genre : true;
 
-  // Filter the bookData array to include only books with the condition "Used"
-  
+      return titleMatch && typeMatch && genreMatch;
+    });
 
-  const openBookDetail = (book) => {
-    setSelectedBook(book);
+    setSearchResults(filteredBooks);
+    setSelectedBookId(null);
   };
 
-  const closeBookDetail = () => {
-    setSelectedBook(null);
+  const renderDefaultSections = () => {
+    return (
+      <>
+        <div className="all-books-section">
+          <h2>All Books</h2>
+          <Slider {...sliderSettings}>{renderBookCards(allBooks)}</Slider>
+        </div>
+        <div className="used-books-section">
+          <h2>Used Books</h2>
+          <Slider {...sliderSettings}>{renderBookCards(usedBooks)}</Slider>
+        </div>
+        <div className="fiction-books-section">
+          <h2>Fiction Books</h2>
+          <Slider {...sliderSettings}>{renderBookCards(fictionBooks)}</Slider>
+        </div>
+      </>
+    );
+  };
+
+  const renderBookCards = (books) => {
+    return books.map((book) => (
+      <Link to={`/books/${book._id}`} key={book._id}>
+        <div onClick={() => handleCardClick(book._id)}>
+          <img src={book.photo} alt={book.title} className="book-photo" />
+          <h4 className="book-name">{book.title}</h4>
+          <p className="book-location">{`Location: ${book.location}`}</p>
+          <p className="book-price">{`Price: Rs ${book.price}`}</p>
+        </div>
+      </Link>
+    ));
+  };
+
+  const handleCardClick = (bookId) => {
+    setSelectedBookId(bookId);
+  };
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
   };
 
   return (
-    <div className="book-card">
-      {bookData.map((book) => (
-        <Link to={`/books/${book._id}`} key={book._id} className="individual-card">
-          <div onClick={() => openBookDetail(book)}>
-            <img src={book.photo} alt={book.title} className="book-photo" />
-            <div className="book-details">
-              <h4 className="book-name">{book.title}</h4>
-              <p className="book-location">{`Location: ${book.location}`}</p>
-              <p className="book-price">{`Price: Rs ${book.price}`}</p>
-            </div>
-          </div>
-        </Link>
-      ))}
+    <div>
+      <h1>Book Search</h1>
+      <SearchForm onSearch={handleSearch} />
 
-      {selectedBook && <BookDetail book={selectedBook} onClose={closeBookDetail} />}
+      {/* Conditionally render either search results or default sections */}
+      {searchResults.length > 0 ? (
+        <SearchResults books={searchResults} onCardClick={handleCardClick} />
+      ) : (
+        renderDefaultSections()
+      )}
+
+      {/* Render the selected book details */}
+      {selectedBookId && <BookDetails bookId={selectedBookId} />}
     </div>
   );
 };
 
-export default BookCard;
+export default Home;

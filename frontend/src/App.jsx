@@ -8,6 +8,7 @@ import Used from './Components/UsedBook/usedbook.jsx'
 import Competitive from './Components/Competitive/competitive.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Novel from './Components/Novel/novel.jsx'
+import UserProfile from './Components/User/UserProfile.jsx'
 
 import BookDetail from './Components/Card/card.jsx'
 
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
 
+    <UserProfile />
     
     
     
@@ -32,6 +34,7 @@ function App() {
 <Route path="/signin" element={<Login />}></Route>
 <Route path="/sell-book" element={<SellBook />}></Route>
 <Route path="/books/:bookId" element={<BookDetail/>} />
+<Route path="/user-profile" element={<UserProfile />}></Route>
 
 
 </Routes>
