@@ -9,8 +9,9 @@ import Competitive from './Components/Competitive/competitive.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Novel from './Components/Novel/novel.jsx'
 
-import UserProfile from './Components/User/userprofile.jsx'
+
 import UserPost from './Components/User/userpost.jsx'
+// import UserProfile from './Components/User/userprofile.jsx'
 
 
 
@@ -39,7 +40,7 @@ function App() {
 <Route path="/sell-book" element={<SellBook />}></Route>
 <Route path="/landing-page" element={<Landingpage />}></Route>
 <Route path="/books/:bookId" element={<BookDetail/>} />
-<Route path="/user-profile" element={<UserProfile />}></Route>
+{/* <Route path="/user-profile" element={<UserProfile />}></Route> */}
 <Route path="/user-post" element={<UserPost />}></Route>
 
 
