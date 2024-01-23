@@ -14,6 +14,8 @@ export const createBook = async (req, res) => {
       location,
       type,
       sellerName,
+      available,
+      status
     } = req.body
     console.log(sellerName)
     const img = req.file.path
@@ -28,7 +30,9 @@ export const createBook = async (req, res) => {
       location,
       condition,
       sellerName,
-      photo: imgObj.url, // Save the Cloudinary URL
+      available:"Buy",
+      status:"Available",
+      photo: imgObj.url, 
     })
 
     console.log(newBook)

@@ -40,6 +40,12 @@ const bookSchema = new mongoose.Schema(
       type: String, //book ko url
       required: true,
     },
+    available:{
+      type:String,
+    },
+    status:{
+      type:String,
+    },
   },
   { timestamps: true },
 )

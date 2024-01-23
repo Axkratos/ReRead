@@ -15,7 +15,7 @@ const router = express.Router()
 router.post('/books', upload.single('photo'), createBook)
 
 // Get all books
-router.get('/books', verifyJWT, getAllBooks)
+router.get('/books', getAllBooks)
 
 // Get a specific book by ID
 router.get('/books/:id', getBookById)
