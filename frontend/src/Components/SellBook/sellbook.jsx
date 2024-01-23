@@ -20,7 +20,9 @@ const SellBook = () => {
     location: '',
     photo: null,
     sellerName: localStorage.getItem('User'),
-    type: '', // New field for book type
+    type: '', 
+    available:"Buy",
+    status:"Available"
   });
 
   const handleChange = (e) => {
@@ -50,6 +52,8 @@ const SellBook = () => {
         location,
         photo,
         type,
+        available='Buy',
+        status='Available'
       } = formData;
 
       const formDataToSubmit = new FormData();
@@ -62,7 +66,9 @@ const SellBook = () => {
       formDataToSubmit.append('location', location);
       formDataToSubmit.append('sellerName', localStorage.getItem('User'));
       formDataToSubmit.append('photo', photo);
-      formDataToSubmit.append('type', type); // Add type to form data
+      formDataToSubmit.append('type', type);
+      formDataToSubmit.append('status', 'Available');
+      formDataToSubmit.append('available', 'Buy'); // Add type to form data
 
       const response = await axios.post(
         'http://localhost:5001/api/v1/book/books',
