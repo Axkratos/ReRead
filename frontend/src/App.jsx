@@ -17,17 +17,19 @@ import UserPost from './Components/User/userpost.jsx'
 
 import BookDetail from './Components/Card/card.jsx'
 import Landingpage from './Components/Landingpage/landingpage.jsx'
+import Demo from './Components/Register/demo.jsx'
 function App() {
   
 
   return (
     <>
+    {/* <Demo /> */}
 
     {/* <UserProfile /> */}
     
     
     
-        <Router>
+         <Router>
      <Navbar/>
       <Routes>
       
@@ -41,12 +43,12 @@ function App() {
 <Route path="/landing-page" element={<Landingpage />}></Route>
 <Route path="/books/:bookId" element={<BookDetail/>} />
 {/* <Route path="/user-profile" element={<UserProfile />}></Route> */}
-<Route path="/user-post" element={<UserPost />}></Route>
+ <Route path="/user-post" element={<UserPost />}></Route>
 
 
 </Routes>
 
-    </Router>
+    </Router>  
     </>
   )
 }

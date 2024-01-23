@@ -1,15 +1,14 @@
+
 // src/components/SellBook.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Button, Container } from 'react-bootstrap';
-
-import './sellbook.css'
-
+import './sellbook.css';
 import { useNavigate } from 'react-router-dom';
 
-
 const SellBook = () => {
-  const navigate=useNavigate()
+  const isAuthenticated = localStorage.getItem('accessToken');
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
     author: '',
@@ -20,9 +19,9 @@ const SellBook = () => {
     location: '',
     photo: null,
     sellerName: localStorage.getItem('User'),
-    type: '', 
-    available:"Buy",
-    status:"Available"
+    type: '',
+    available: 'Buy',
+    status: 'Available',
   });
 
   const handleChange = (e) => {
@@ -52,8 +51,8 @@ const SellBook = () => {
         location,
         photo,
         type,
-        available='Buy',
-        status='Available'
+        available = 'Buy',
+        status = 'Available',
       } = formData;
 
       const formDataToSubmit = new FormData();
@@ -81,19 +80,26 @@ const SellBook = () => {
       );
 
       console.log('Book added successfully:', response.data);
-      navigate('/')
       // Handle the response as needed (e.g., redirect to a success page)
     } catch (error) {
       console.error('Error during book addition:', error.message);
     }
   };
 
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/signin');
+    }
+  }, [isAuthenticated, navigate]);
+
   return (
-    <Container className="sell-book-container">
-      <div className="sell-book-form-controller">
-        <h3>Sell a Book</h3>
-        <Form>
-          <Form.Group controlId="formTitle">
+    <div>
+      {isAuthenticated ? (
+        <Container className="sell-book-container">
+          <div className="sell-book-form-controller">
+            <h3>Sell a Book</h3>
+            <Form>
+            <Form.Group controlId="formTitle">
             <Form.Label>Title</Form.Label>
             <Form.Control
               type="text"
@@ -197,15 +203,18 @@ const SellBook = () => {
               onChange={handleFileChange}
             />
           </Form.Group>
-          <div className="d-flex flex-column align-items-center justify-content-center mt-4">
-            <Button variant="primary" onClick={handleSellBook} className="sell-book-button">
-              Sell Book
-            </Button>
+              <div className="d-flex flex-column align-items-center justify-content-center mt-4">
+                <Button variant="primary" onClick={handleSellBook} className="sell-book-button">
+                  Sell Book
+                </Button>
+              </div>
+            </Form>
           </div>
-        </Form>
-      </div>
-    </Container>
+        </Container>
+      ) : null}
+    </div>
   );
 };
 
 export default SellBook;
+
