@@ -33,45 +33,56 @@ const BookDetail = () => {
     fetchData();
   }, [bookId, navigate]); // Include navigate in the dependency array
 
-  const handleBuyClick = async () => {
-    try {
-      const token = localStorage.getItem('accessToken');
+  // ...
 
-      // Check the current status
-      if (bookData.status === 'Booked') {
-        window.alert('This book is already booked. Check back after 2 days to see if it is available.');
-        return;
-      }
+const handleBuyClick = async () => {
+  try {
+    const token = localStorage.getItem('accessToken');
 
-      // Display a confirmation prompt
-      const shouldBuy = window.confirm('Do you want to buy this book?');
-
-      if (shouldBuy) {
-        const response = await fetch(
-          `http://localhost:5001/api/v1/book/books/${bookId}`,
-          {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ status: 'Booked' }),
-          }
-        );
-
-        if (response.ok) {
-          // Successfully updated, you can reload the book data or update state
-          // to reflect the changes.
-          const updatedBookData = await response.json();
-          setBookData(updatedBookData);
-        } else {
-          console.error('Error updating book status:', response.statusText);
-        }
-      }
-    } catch (error) {
-      console.error('Error updating book status:', error);
+    // Check if the seller is trying to buy their own book
+    if (bookData.sellerName === localStorage.getItem('User')) {
+      window.alert('You cannot buy your own book.');
+      return;
     }
-  };
+
+    // Check the current status
+    if (bookData.status === 'Booked') {
+      window.alert('This book is already booked. Check back after 2 days to see if it is available.');
+      return;
+    }
+
+    // Display a confirmation prompt
+    const shouldBuy = window.confirm('Do you want to buy this book?');
+
+    if (shouldBuy) {
+      const response = await fetch(
+        `http://localhost:5001/api/v1/book/books/${bookId}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ status: 'Booked' }),
+        }
+      );
+
+      if (response.ok) {
+        // Successfully updated, you can reload the book data or update state
+        // to reflect the changes.
+        const updatedBookData = await response.json();
+        setBookData(updatedBookData);
+      } else {
+        console.error('Error updating book status:', response.statusText);
+      }
+    }
+  } catch (error) {
+    console.error('Error updating book status:', error);
+  }
+};
+
+
+
 
   if (!bookData) {
     return <div>Loading...</div>;

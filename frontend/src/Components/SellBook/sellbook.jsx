@@ -80,6 +80,7 @@ const SellBook = () => {
       );
 
       console.log('Book added successfully:', response.data);
+      navigate('/')
       // Handle the response as needed (e.g., redirect to a success page)
     } catch (error) {
       console.error('Error during book addition:', error.message);
