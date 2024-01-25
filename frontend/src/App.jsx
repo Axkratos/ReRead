@@ -8,6 +8,7 @@ import Used from './Components/UsedBook/usedbook.jsx'
 import Competitive from './Components/Competitive/competitive.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Novel from './Components/Novel/novel.jsx'
+import BuyerChat from './Components/Card/chat.jsx'
 
 
 import UserPost from './Components/User/userpost.jsx'
@@ -17,17 +18,21 @@ import UserPost from './Components/User/userpost.jsx'
 
 import BookDetail from './Components/Card/card.jsx'
 import Landingpage from './Components/Landingpage/landingpage.jsx'
+import Demo from './Components/Register/demo.jsx'
 function App() {
   
 
   return (
     <>
+    {/* <Demo /> */}
 
     {/* <UserProfile /> */}
+    {/* <BuyerChat /> */}
     
     
     
-        <Router>
+    
+         <Router>
      <Navbar/>
       <Routes>
       
@@ -40,13 +45,13 @@ function App() {
 <Route path="/sell-book" element={<SellBook />}></Route>
 <Route path="/landing-page" element={<Landingpage />}></Route>
 <Route path="/books/:bookId" element={<BookDetail/>} />
-{/* <Route path="/user-profile" element={<UserProfile />}></Route> */}
-<Route path="/user-post" element={<UserPost />}></Route>
+
+ <Route path="/user-post" element={<UserPost />}></Route>
 
 
 </Routes>
 
-    </Router>
+    </Router>  
     </>
   )
 }
