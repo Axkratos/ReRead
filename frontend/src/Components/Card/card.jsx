@@ -101,9 +101,11 @@ const handleBuyClick = async () => {
           <p>Description: {bookData.description}</p>
           <p>Location: {bookData.location}</p>
           <div>
+           
             <button type="button" onClick={handleBuyClick}>
               {bookData.status === 'Available' ? 'Buy' : 'Booked'}
             </button>
+            
             <label>Status: {bookData.status}</label>
           </div>
         </div>

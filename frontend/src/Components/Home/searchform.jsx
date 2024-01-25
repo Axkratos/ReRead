@@ -23,11 +23,11 @@ const SearchForm = ({ onSearch }) => {
     <form onSubmit={handleSubmit}>
       <label>SEARCH BOOK</label>
       <label>
-        Title:
+        Title
         <input type="text" name="title" value={formData.title} onChange={handleChange} />
       </label>
       <label>
-        Type:
+        Type
         <select name="type" value={formData.type} onChange={handleChange}>
           <option value="">Select Type</option>
           <option value="Competitive Books">Competitive Books</option>
@@ -35,7 +35,7 @@ const SearchForm = ({ onSearch }) => {
         </select>
       </label>
       <label>
-        Genre:
+        Genre
         <select name="genre" value={formData.genre} onChange={handleChange}>
           <option value="">Select Genre</option>
           <option value="Fiction">Fiction</option>

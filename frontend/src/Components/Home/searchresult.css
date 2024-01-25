@@ -1,60 +1,81 @@
-/* home.css */
+/* searchresult.css */
+.search-results-container {
+    padding: 20px;
+    margin:10px 10px;
+    margin-left: 100px;
+    width: 100%;
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
   }
   
-  /* Style for individual book card */
-  div {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 10px;
+  .search-results-title {
+    font-size: 24px;
+    width: 15%;
+    margin-bottom: 70px;
+    color: rgb(245, 247, 249);
+    margin-left: 550px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(253, 252, 252, 0.1);
     text-align: center;
-    background-color: #fff;
+    background:transparent;
+  }
+  
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+   
+  }
+  
+  .card {
+    box-shadow: 0 0 10px rgba(253, 252, 252, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    width: 70%;
+    height: 400px;
+    margin: 10px 20px;
+   background-color: #dee2e9;
+  }
+  
+  .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 15px rgba(225, 214, 214, 0.2);
   }
   
   .book-photo {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 8px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-details {
+    padding: 15px;
+    margin-top: 1px;
   }
   
   .book-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+
   }
   
-  .book-location,
+  .book-location {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 20px;
+    font-size: 17px;
+    margin-right: 5px;
+    color: #020609;
+  }
+  
   .book-price {
-    font-size: 14px;
-    margin: 8px 0;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #010102;
   }
   
-  /* Style for the Slider component */
-  .slick-prev,
-  .slick-next {
-    font-size: 24px;
-    color: #007bff;
-  }
-  
-  .slick-prev:hover,
-  .slick-next:hover {
-    color: #0056b3;
-  }
-  
-  .slick-dots {
-    bottom: 10px;
-  }
-  
-  .slick-dots li button {
-    font-size: 12px;
-    color: #007bff;
-  }
-  
-  .slick-dots li.slick-active button {
-    color: #0056b3;
+  .no-results-message {
+    font-size: 18px;
+    color: #e11717;
+    text-align: center;
   }
   

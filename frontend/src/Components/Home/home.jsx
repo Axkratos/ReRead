@@ -57,17 +57,17 @@ const Home = () => {
   const renderBookCards = (books) => {
     return books.map((book) => (
       <div className='individual-book'>
-      <Link to={`/books/${book._id}`} key={book._id}>
-        <div onClick={() => handleCardClick(book._id)}>
-          <img src={book.photo} alt={book.title} className="book-photo" />
-          <div className="book-details">
-            <h4 className="book-name">{book.title}</h4>
-            <p className="book-author">{`By ${book.author}`}</p>
-            <p className="book-location">{`Location: ${book.location}`}</p>
-            <p className="book-price">{`Price: Rs ${book.price}`}</p>
+        <Link to={`/books/${book._id}`} key={book._id}>
+          <div onClick={() => handleCardClick(book._id)}>
+            <img src={book.photo} alt={book.title} className="book-photo" />
+            <div className="book-details">
+              <h4 className="book-name">{book.title}</h4>
+              <p className="book-author">{`By ${book.author}`}</p>
+              <p className="book-location">{`Location: ${book.location}`}</p>
+              <p className="book-price">{`Price: Rs ${book.price}`}</p>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
       </div>
     ));
   };
