@@ -9,10 +9,11 @@
   text-decoration: none;
 }
 .home-container{
-  /* margin-top: ; */
+
 display:flex;
 flex-wrap: wrap;
 width: 100%;
+text-decoration: none;
 overflow:hidden;
 background-image: url();
 background-size: cover;
@@ -36,6 +37,7 @@ background :transparent;
 .home-title{
   width: 70%; 
   background :#5a8898;
+
   margin-left: 5px;
   margin-top: 120px;
   height: 400px;
@@ -43,6 +45,7 @@ background :transparent;
   background-image: url();
   background-size: cover;
 background-position: center;
+
 }
 .individual-book{
   width: 18%;
@@ -59,9 +62,14 @@ transition :.4s;
 background :#dee2e9;
 text-decoration:none;
 }
+.individual-book a {
+  text-decoration: none;
+}
+
 .book-details{
   max-width: 600px;
   padding: 20px;
+  text-decoration: none;
 }
 .book-author{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -76,6 +84,7 @@ text-decoration:none;
   text-align: center;
   font-weight: 500;
  font-family: Georgia, 'Times New Roman', Times, serif;
+
  transition: box-shadow 0.3s ease;
  box-shadow: 0 0 10px rgba(253, 252, 252, 0.1);
  text-align: center;
@@ -84,5 +93,6 @@ text-decoration:none;
  margin-left: 630px;
  width: 15%;
   text-decoration: underline;
+
 }
 
