@@ -21,6 +21,7 @@ const SearchForm = ({ onSearch }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <label>SEARCH BOOK</label>
       <label>
         Title:
         <input type="text" name="title" value={formData.title} onChange={handleChange} />

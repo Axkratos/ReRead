@@ -113,12 +113,13 @@ const UserPosts = () => {
           <Card key={post._id} className="mb-3">
             <Card.Body>
               {/* Display post details */}
+              <img src={post.photo} alt={post.title} className="book-photo" />
               <Card.Title>{post.title}</Card.Title>
               <Card.Text>Description: {post.description}</Card.Text>
               <Card.Text>Author: {post.author}</Card.Text>
               <Card.Text>Location: {post.location}</Card.Text>
               <Card.Text>Condition: {post.condition}</Card.Text>
-
+              
               {/* Update and delete buttons */}
               <Button variant="primary" onClick={() => handleUpdateClick(post._id)}>
                 Update Post

@@ -77,7 +77,7 @@ const BookDetail = () => {
   return (
     <div className="book-detail">
       <h2>{bookData.title}</h2>
-      <p>Posted Date: {new Date(bookData.createdAt).toLocaleDateString()}</p>
+      <p>Date: {new Date(bookData.createdAt).toLocaleDateString()}</p>
       <img src={bookData.photo} alt={bookData.title} className="book-photo" />
       <p>Description: {bookData.description}</p>
       <p>Location: {bookData.location}</p>

@@ -50,10 +50,11 @@ const AppNavbar = () => {
             {isAuthenticated ? (
               <NavDropdown title="User" id="basic-nav-dropdown">
                 <LinkContainer to="/user-profile">
-                  <NavDropdown.Item>My Profile</NavDropdown.Item>
+                  <NavDropdown.Item>Profile</NavDropdown.Item>
                 </LinkContainer>
+                <NavDropdown.Divider />
                 <LinkContainer to="/user-post">
-                  <NavDropdown.Item>My Posts</NavDropdown.Item>
+                  <NavDropdown.Item>Posts</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
@@ -69,7 +70,7 @@ const AppNavbar = () => {
               </>
             )}
             <LinkContainer to="/sell-book">
-              <Nav.Link className="transparent-button">Sell Book</Nav.Link>
+              <Nav.Link className="transparent-button">Add Book</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
