@@ -8,7 +8,7 @@ import Used from './Components/UsedBook/usedbook.jsx'
 import Competitive from './Components/Competitive/competitive.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Novel from './Components/Novel/novel.jsx'
-import BuyerChat from './Components/Card/chat.jsx'
+import Chat from './Components/Card/chat.jsx'
 
 
 import UserPost from './Components/User/userpost.jsx'
@@ -27,12 +27,11 @@ function App() {
     {/* <Demo /> */}
 
     {/* <UserProfile /> */}
-    {/* <BuyerChat /> */}
+   
     
     
     
-    
-         <Router>
+          <Router>
      <Navbar/>
       <Routes>
       
@@ -51,7 +50,7 @@ function App() {
 
 </Routes>
 
-    </Router>  
+    </Router>   
     </>
   )
 }
