@@ -89,6 +89,9 @@ const handleBuyClick = async () => {
   }
 
   return (
+
+   
+
     <div>
       {isAuthenticated ? (
         <div className="book-detail">
@@ -107,6 +110,7 @@ const handleBuyClick = async () => {
       ) : (
         navigate('/signin')
       )}
+
     </div>
   );
 };

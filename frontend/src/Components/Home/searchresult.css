@@ -1,0 +1,60 @@
+/* home.css */
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  /* Style for individual book card */
+  div {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .book-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .book-name {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .book-location,
+  .book-price {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+  
+  /* Style for the Slider component */
+  .slick-prev,
+  .slick-next {
+    font-size: 24px;
+    color: #007bff;
+  }
+  
+  .slick-prev:hover,
+  .slick-next:hover {
+    color: #0056b3;
+  }
+  
+  .slick-dots {
+    bottom: 10px;
+  }
+  
+  .slick-dots li button {
+    font-size: 12px;
+    color: #007bff;
+  }
+  
+  .slick-dots li.slick-active button {
+    color: #0056b3;
+  }
+  

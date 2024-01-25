@@ -6,24 +6,33 @@
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #dee2e9;
+  margin-top: 10%;
+
 }
 
 .book-detail h2 {
-  color: #333;
+  color: #0a0e09;
 }
 
 .book-detail p {
   margin-bottom: 10px;
-  color: #555;
+  color: #000001;
+
 }
 
 .book-photo {
   width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: 12px;
+  margin-bottom: 2px;
+margin: -5px 1px;
+
 }
 
 /* Add more styling as needed */
+.book-detail label{
+  margin-left: 60%;
+}
+.book-detail{
+  font-size: 20px;
+}

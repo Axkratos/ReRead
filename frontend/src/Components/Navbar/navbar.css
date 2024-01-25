@@ -1,121 +1,104 @@
-.custom-navbar {
-  background-color: #fff; /* Navbar background color */
-  border-bottom: 1px solid #ddd; /* Border color at the bottom */
-  font-size: 20px;
-  height: 100px;
-  padding: 0;
+*{
+  margin:0;
+  padding:0;
+  font-family:'Poppins',sans-serif;
   box-sizing:border-box;
+  }
   
-  background-color: #101111;
-  .logo {
-    font-size: 200%; /* Adjust the logo font size */
-    color: #333; /* Logo text color */
-    text-decoration: none;
+  .custom-navbar{
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  display:flex;
+    padding:30px 100px ;
+    justify-content:space-between;
+  align-items:center;
+
   }
-
-  .horiz {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  
+  
+  .logo{
+  position: absolute;
+  font-size:200%;
+  color:#0b0404;
+  margin-right: auto;
+  text-decoration:none;
   }
-
-  .nav-link {
-    color: #f8f4f4; /* Navbar link color */
-    margin-right: 15px; /* Adjust the spacing between navbar links */
-    text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition for link color */
-    margin: 8px;
+  .nav-link{
+  position:relative;
+  font-size:20px;
+  color:#130404;
+  text-decoration:none;
+  font-weight:700;
+  margin-left:40px;
+  left:50%;
+  width: 100%;
   }
-
-  .nav-link:hover {
-    color: #ff0000; /* Change link color on hover */
+  .mr-auto{
+    margin-left:100px;
   }
-
-  .transparent-button {
-    color: #e6e9ed; /* Button text color */
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin-right: 15px;
-    text-decoration: none;
-    transition: col; /* Smooth transition for button color */
+  
+  .nav-link::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:100%;
+  height:3px;
+  background:#4009e2;
+  border-radius:5px;
+  transform:scaleX(0);
+  transition:transform .5s;
   }
-
-  .transparent-button:hover {
-    color: #0056b3; /* Change button color on hover */
+  
+  .nav-link:hover::after{
+  transform: scaleX(1);
   }
-
-  /* Responsive Navbar Toggle Button */
-  .navbar-toggler-icon {
-    border: 1px solid #007bff; /* Toggle button color */
+  
+ .justify-content-end{
+  width:130px;
+  height:50px;
+  outline:no;
+  color:#824b4b; 
+      border-radius:6px;
+      background: transparent;
+      cursor: pointer;
+  font-size:700;
+  margin-top:-5%;
+      margin-left: 150%;
+      text-decoration: none;
+      transition:.5s;
   }
-
-  .navbar-toggler {
-    border: none;
-    outline: none;
+  
+  #basic-nav-dropdown:hover{
+  background:#fcf6f6;
+  color:#000509;
   }
-
-  /* Active Link Highlighting */
-  .nav-link.active {
-    font-weight: bold; /* Highlight active link by making text bold */
+  
+  .transparent-button{
+  width:130px;
+  height:50px;
+  color: #100606; 
+      border-radius:6px;
+      background: transparent;
+      cursor: pointer;
+  font-size:700;
+      text-decoration: none;
+      transition:.5s;
+      
   }
-}
-/* Add this CSS block to style the dropdown in the user section */
-
-/* Dropdown styling */
-.custom-navbar .dropdown-menu {
-  background-color: #101111; /* Dropdown background color */
-  border: 1px solid #007bff; /* Dropdown border color */
-}
-
-.prayojan {
-  display: flex;
-}
-#basic-nav-dropdown.dropdown-menu {
-  flex-direction: column;
-}
-
-#basic-nav-dropdown.dropdown-menu .dropdown-item {
-  /* Customize the appearance of dropdown items */
-  color: #f8f4f4; /* Dropdown item text color */
-}
-
-#basic-nav-dropdown.dropdown-menu .dropdown-item:hover {
-  /* Change dropdown item background color on hover */
-  background-color: #007bff;
-  color: #fff;
-}
-
-#basic-nav-dropdown.dropdown-menu .dropdown-divider {
-  /* Customize the appearance of the dropdown divider */
-  border-top: 1px solid #007bff;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-/* Dropdown item styling */
-.custom-navbar .dropdown-item {
-  color: #f8f4f4; /* Dropdown item text color */
-}
-
-.custom-navbar .dropdown-item:hover {
-  background-color: #007bff; /* Change dropdown item background color on hover */
-  color: #fff; /* Change dropdown item text color on hover */
-}
-
-/* Divider styling */
-.custom-navbar .dropdown-divider {
-  border-top: 1px solid #007bff; /* Divider color */
-}
-
-/* Caret icon styling */
-.custom-navbar .caret {
-  border-top-color: #f8f4f4; /* Caret color */
-}
-
-/* Adjust the shadow of the dropdown */
-.custom-navbar .dropdown-menu {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Dropdown box shadow */
-}
-
+  
+  .transparent-button:hover{
+  background:hsl(0, 23%, 95%);
+  color:#010508;
+  }
+  .prayojan{
+    font-size:200%;
+    color:#0b0404;
+    display:flex;
+    padding:1px;
+  }
+  
+  
+  

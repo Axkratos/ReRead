@@ -48,7 +48,7 @@ const Home = () => {
   const renderDefaultSection = () => {
     return (
       <div className="all-books-section">
-        <h2>All Books</h2>
+        <h2 >All Books</h2>
         <div className="book-cards-container">{renderBookCards(allBooks)}</div>
       </div>
     );
@@ -56,7 +56,8 @@ const Home = () => {
 
   const renderBookCards = (books) => {
     return books.map((book) => (
-      <Link to={`/books/${book._id}`} key={book._id} className="book-card">
+      <div className='individual-book'>
+      <Link to={`/books/${book._id}`} key={book._id}>
         <div onClick={() => handleCardClick(book._id)}>
           <img src={book.photo} alt={book.title} className="book-photo" />
           <div className="book-details">
@@ -67,6 +68,7 @@ const Home = () => {
           </div>
         </div>
       </Link>
+      </div>
     ));
   };
 
@@ -76,7 +78,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">Book Search</h1>
+      <h1 className="home-title"></h1>
       <SearchForm onSearch={handleSearch} />
 
       {/* Conditionally render either search results or default section */}
