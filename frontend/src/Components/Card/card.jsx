@@ -78,6 +78,26 @@ const BookDetail = () => {
   }
 
   return (
+
+
+   
+
+//     <div>
+//       {isAuthenticated ? (
+//         <div className="book-detail">
+//           <h2>{bookData.title}</h2>
+//           <p>Posted Date: {new Date(bookData.createdAt).toLocaleDateString()}</p>
+//           <img src={bookData.photo} alt={bookData.title} className="book-photo" />
+//           <p>Description: {bookData.description}</p>
+//           <p>Location: {bookData.location}</p>
+//           <div>
+           
+//             <button type="button" onClick={handleBuyClick}>
+//               {bookData.status === 'Available' ? 'Buy' : 'Booked'}
+//             </button>
+            
+//             <label>Status: {bookData.status}</label>
+
     <div className="book-detail-container">
       <div className="book-detail">
         <h2>{bookData.title}</h2>
@@ -108,6 +128,7 @@ const BookDetail = () => {
             >
               <button className="whatsapp-button">WhatsApp</button>
             </a>
+
           </div>
         </div>
       </div>
