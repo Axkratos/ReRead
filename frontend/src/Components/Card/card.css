@@ -1,13 +1,6 @@
 /* book-detail.css */
 
-.book-detail-container {
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
 .book-detail {
-  width: 70%;
   max-width: 600px;
   margin: auto;
   padding: 20px;
@@ -15,6 +8,7 @@
   border-radius: 8px;
   background-color: #dee2e9;
   margin-top: 10%;
+
 }
 
 .book-detail h2 {
@@ -24,62 +18,21 @@
 .book-detail p {
   margin-bottom: 10px;
   color: #000001;
+
 }
 
 .book-photo {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 2px;
-  margin: -5px 1px;
+margin: -5px 1px;
+
 }
 
-/* Message Section */
-.message-section {
-  width: 25%;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: #dee2e9;
-  margin-top: 10%;
-}
-
-.message-section h3 {
-  color: #0a0e09;
-}
-
-.message-input-section {
-  margin-top: 10px;
-}
-
-.message-input-section textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.message-input-section button {
-  background-color: #0a0e09;
-  color: #ffffff;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.book-detail label {
+/* Add more styling as needed */
+.book-detail label{
   margin-left: 60%;
 }
-
-.book-detail {
+.book-detail{
   font-size: 20px;
-}
-
-.message-buttons {
-  display: flex;
-  align-items: center;
-}
-
-.message-buttons span {
-  margin: 0 10px;
 }

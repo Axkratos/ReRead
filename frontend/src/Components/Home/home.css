@@ -9,11 +9,10 @@
   text-decoration: none;
 }
 .home-container{
- 
+  margin-top: ;
 display:flex;
 flex-wrap: wrap;
 width: 100%;
-text-decoration: none;
 overflow:hidden;
 
 margin: 0px 0px;
@@ -30,13 +29,11 @@ padding-top: 10px;
 box-shadow: 0 14px 28px rgba(0,0,e,0.22);
 transition :.4s;
 background :transparent;
-text-decoration: none;
 }
 .home-title{
   width: 70%; 
   background :#5a8898;
   margin-top: 80px;
-  text-decoration: none;
 }
 .individual-book{
   width: 18%;
@@ -53,14 +50,9 @@ transition :.4s;
 background :#dee2e9;
 text-decoration:none;
 }
-.individual-book a {
-  text-decoration: none;
-}
-
 .book-details{
   max-width: 600px;
   padding: 20px;
-  text-decoration: none;
 }
 .individual-book:hover {
   transform: translateY(-15px);
@@ -72,6 +64,6 @@ text-decoration:none;
   font-weight: 500;
  font-family: Georgia, 'Times New Roman', Times, serif;
   
-  text-decoration: none;
+  text-decoration: underline;
 }
 
