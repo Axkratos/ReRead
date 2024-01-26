@@ -40,7 +40,8 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #dee2e9;
-  margin-top: 10%;
+  margin-top: -14%;
+  margin-left: 70%;
 }
 
 .message-section h3 {
@@ -84,4 +85,3 @@
 .message-buttons span {
   margin: 0 10px;
 }
-
