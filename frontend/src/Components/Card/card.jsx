@@ -94,6 +94,7 @@ const handleBuyClick = async () => {
 
     <div>
       {isAuthenticated ? (
+        <div>
         <div className="book-detail">
           <h2>{bookData.title}</h2>
           <p>Posted Date: {new Date(bookData.createdAt).toLocaleDateString()}</p>
@@ -107,6 +108,25 @@ const handleBuyClick = async () => {
             <label>Status: {bookData.status}</label>
           </div>
         </div>
+
+<div className="message-section">
+<h3>Chat With Seller: {bookData.sellerName}</h3>
+<div className="message-input-section">
+  <textarea placeholder="Type your message..." rows="4"></textarea>
+  <div className="message-buttons">
+    <button className="send-button">Send Message</button>
+    <span>OR</span>
+    <a
+      href={`https://wa.me/${bookData.sellerPhoneNumber}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button className="whatsapp-button">WhatsApp</button>
+    </a>
+  </div>
+</div>
+</div>
+</div>
       ) : (
         navigate('/signin')
       )}
