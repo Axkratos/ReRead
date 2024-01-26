@@ -78,7 +78,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-title"></h1>
+      <h1 className="home-title">WELCOME TO REREAD NEPAL.</h1>
+
       <SearchForm onSearch={handleSearch} />
 
       {/* Conditionally render either search results or default section */}
