@@ -14,6 +14,7 @@ export const createBook = async (req, res) => {
       location,
       type,
       sellerName,
+      sellerPhone,
       available,
       status
     } = req.body
@@ -30,6 +31,7 @@ export const createBook = async (req, res) => {
       location,
       condition,
       sellerName,
+      sellerPhone,
       available:"Buy",
       status:"Available",
       photo: imgObj.url, 
