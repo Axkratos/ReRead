@@ -9,12 +9,12 @@ import messageRouter from './routes/message.route.js'; // Import your message ro
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"]
-  }
-});
+// const io = new Server(server, {
+//   cors: {
+//     origin: "http://localhost:5173",
+//     methods: ["GET", "POST"]
+//   }
+// });
 
 // Middleware
 app.use(cors({
@@ -31,25 +31,25 @@ app.use('/api/v1/user', userRouter);
 app.use('/api/v1/book', bookRouter);
 app.use('/api/v1/message', messageRouter); // Use your message router
 
-io.on('connection', (socket) => {
-  console.log('A user connected');
+// io.on('connection', (socket) => {
+//   console.log('A user connected');
 
-  // Handle incoming messages
-  socket.on('message', async (data) => {
-    try {
-      // Extract sellerName from the message data
-      const { sellerName } = data;
+//   // Handle incoming messages
+//   socket.on('message', async (data) => {
+//     try {
+//       // Extract sellerName from the message data
+//       const { sellerName } = data;
 
-      // Emit the message to a room specific to the sellerName
-      io.to(sellerName).emit('message', data);
-    } catch (error) {
-      console.error('Error handling message:', error);
-    }
-  });
+//       // Emit the message to a room specific to the sellerName
+//       io.to(sellerName).emit('message', data);
+//     } catch (error) {
+//       console.error('Error handling message:', error);
+//     }
+//   });
 
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
-});
+//   socket.on('disconnect', () => {
+//     console.log('User disconnected');
+//   });
+// });
 
 export { app, server };

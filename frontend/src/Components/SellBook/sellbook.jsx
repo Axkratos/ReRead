@@ -54,7 +54,7 @@ const SellBook = () => {
         sellerPhone,
         type,
         available = 'Buy',
-        status = 'Available',
+        status = 'unverified',
       } = formData;
 
       const formDataToSubmit = new FormData();
@@ -69,7 +69,7 @@ const SellBook = () => {
       formDataToSubmit.append('photo', photo);
       formDataToSubmit.append('type', type);
       formDataToSubmit.append('sellerPhone', sellerPhone);
-      formDataToSubmit.append('status', 'Available');
+      formDataToSubmit.append('status', 'unverified');
       formDataToSubmit.append('available', 'Buy'); // Add type to form data
 
       const response = await axios.post(

@@ -1,0 +1,17 @@
+/* src/components/AdminPanel.css */
+.admin-panel-container {
+    padding: 20px;
+  }
+  
+  .admin-panel-books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .admin-panel-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  

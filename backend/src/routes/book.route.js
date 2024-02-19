@@ -18,7 +18,7 @@ router.post('/books', upload.single('photo'), createBook)
 router.get('/books', getAllBooks)
 
 // Get a specific book by ID
-router.get('/books/:id',verifyJWT, getBookById)
+router.get('/books/:id',getBookById)
 
 // Update a book by ID
 router.put('/books/:id', updateBookById)

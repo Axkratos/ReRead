@@ -33,7 +33,7 @@ export const createBook = async (req, res) => {
       sellerName,
       sellerPhone,
       available:"Buy",
-      status:"Available",
+      status:"unverified",
       photo: imgObj.url, 
     })
 
