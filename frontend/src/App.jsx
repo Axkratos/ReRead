@@ -9,12 +9,13 @@ import Competitive from './Components/Competitive/competitive.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Novel from './Components/Novel/novel.jsx'
 import BuyerChat from './Components/Card/chat.jsx'
+import AdminPanel from './Components/Admin/admin.jsx'
 
 
 import UserPost from './Components/User/userpost.jsx'
 import ChatApp from './Components/User/ChatApp.jsx'
 
-
+import BookDetailPage from './Components/Admin/BookDetailPage.jsx'
 
 
 import BookDetail from './Components/Card/card.jsx'
@@ -25,11 +26,8 @@ function App() {
 
   return (
     <>
-    {/* <Demo /> */}
-
-    {/* <UserProfile /> */}
-    {/* <BuyerChat /> */}
     
+   
     
     
     
@@ -43,7 +41,9 @@ function App() {
 <Route path="/novels" element={<Novel/>}></Route>
 <Route path="/signup" element={<Register/>}></Route>
 <Route path="/signin" element={<Login />}></Route>
+<Route path="/admin" element={<AdminPanel />}></Route>
 <Route path="/sell-book" element={<SellBook />}></Route>
+<Route path="/admin/book/:id" element={<BookDetailPage />}></Route>
 <Route path="/landing-page" element={<Landingpage />}></Route>
 <Route path="/books/:bookId" element={<BookDetail/>} />
 <Route path="/message" element={<ChatApp />}></Route>

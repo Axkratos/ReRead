@@ -23,11 +23,15 @@ const Home = () => {
           },
         });
         const data = await response.json();
-        setAllBooks(data);
+        // Filter the books to only include those with status 'Available' or 'Booked'
+        const availableOrBookedBooks = data.filter(book => book.status === 'Available' || book.status === 'Booked');
+        setAllBooks(availableOrBookedBooks);
       } catch (error) {
         console.error('Error fetching book data:', error);
       }
     };
+    
+    
 
     fetchData();
   }, []);
