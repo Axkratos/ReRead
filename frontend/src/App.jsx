@@ -12,7 +12,8 @@ import BuyerChat from './Components/Card/chat.jsx'
 
 
 import UserPost from './Components/User/userpost.jsx'
-// import UserProfile from './Components/User/userprofile.jsx'
+import ChatApp from './Components/User/ChatApp.jsx'
+
 
 
 
@@ -45,7 +46,7 @@ function App() {
 <Route path="/sell-book" element={<SellBook />}></Route>
 <Route path="/landing-page" element={<Landingpage />}></Route>
 <Route path="/books/:bookId" element={<BookDetail/>} />
-
+<Route path="/message" element={<ChatApp />}></Route>
  <Route path="/user-post" element={<UserPost />}></Route>
 
 

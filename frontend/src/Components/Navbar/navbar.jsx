@@ -22,7 +22,7 @@ const AppNavbar = () => {
       <Container className="horiz">
         {/* Left Side */}
         <Navbar.Brand href="/" className="logo">
-          Logo
+        ReRead
         </Navbar.Brand>
 
         
@@ -49,8 +49,8 @@ const AppNavbar = () => {
           <Nav className='prayojan'>
             {isAuthenticated ? (
               <NavDropdown title="User" id="basic-nav-dropdown">
-                <LinkContainer to="/user-profile">
-                  <NavDropdown.Item>Profile</NavDropdown.Item>
+                <LinkContainer to="/message">
+                  <NavDropdown.Item>Message</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
                 <LinkContainer to="/user-post">

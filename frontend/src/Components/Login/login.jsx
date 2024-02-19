@@ -1,7 +1,7 @@
 // src/components/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, Alert } from 'react-bootstrap'; // Import Alert from react-bootstrap
 
 import "./login.css"
 
@@ -9,11 +9,12 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,18 +28,21 @@ const Login = () => {
     try {
       const { email, password } = formData;
 
+      if (!email || !password) {
+        setError('Please fill in all fields');
+        return;
+      }
+
       const response = await axios.post('http://localhost:5001/api/v1/user/signin', {
         email,
         password,
       });
 
-      // console.log('Login successful:', response.data);
-      localStorage.setItem('accessToken',response.data.token);
-      localStorage.setItem('User',response.data.user.username);
-      // console.log(localStorage.getItem('accessToken'));
-      navigate('/')
-      // Store the token in localStorage or a state management solution
+      localStorage.setItem('accessToken', response.data.token);
+      localStorage.setItem('User', response.data.user.username);
+      navigate('/');
     } catch (error) {
+      alert('Invalid email or password');
       console.error('Error during login:', error.message);
     }
   };
@@ -47,6 +51,7 @@ const Login = () => {
     <Container className="login-container">
       <div className="login-form-controller">
         <h3>Login</h3>
+       
         <Form>
           <Form.Group controlId="formEmail">
             <Form.Label>Your Email</Form.Label>
@@ -56,6 +61,7 @@ const Login = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required // Making this field compulsory
             />
           </Form.Group>
           <Form.Group controlId="formPassword">
@@ -66,6 +72,7 @@ const Login = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
+              required // Making this field compulsory
             />
           </Form.Group>
           <div className="d-flex flex-column align-items-center justify-content-center mt-4">

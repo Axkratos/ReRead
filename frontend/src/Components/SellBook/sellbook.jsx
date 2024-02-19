@@ -19,6 +19,7 @@ const SellBook = () => {
     location: '',
     photo: null,
     sellerName: localStorage.getItem('User'),
+    sellerPhone:'',
     type: '',
     available: 'Buy',
     status: 'Available',
@@ -50,6 +51,7 @@ const SellBook = () => {
         genre,
         location,
         photo,
+        sellerPhone,
         type,
         available = 'Buy',
         status = 'Available',
@@ -66,6 +68,7 @@ const SellBook = () => {
       formDataToSubmit.append('sellerName', localStorage.getItem('User'));
       formDataToSubmit.append('photo', photo);
       formDataToSubmit.append('type', type);
+      formDataToSubmit.append('sellerPhone', sellerPhone);
       formDataToSubmit.append('status', 'Available');
       formDataToSubmit.append('available', 'Buy'); // Add type to form data
 
@@ -183,6 +186,16 @@ const SellBook = () => {
               <option value="Science Fiction">Science Fiction</option>
               {/* Add more genres as needed */}
             </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="sellerPhone">
+            <Form.Label>PhoneNumber</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your Number"
+              name="sellerPhone"
+              value={formData.sellerPhone}
+              onChange={handleChange}
+            />
           </Form.Group>
           <Form.Group controlId="formLocation">
             <Form.Label>Location</Form.Label>

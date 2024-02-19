@@ -117,7 +117,7 @@ const handleBuyClick = async () => {
     <button className="send-button">Send Message</button>
     <span>OR</span>
     <a
-      href={`https://wa.me/${bookData.sellerPhoneNumber}`}
+      href={`https://wa.me/${bookData.sellerPhone}`}
       target="_blank"
       rel="noopener noreferrer"
     >

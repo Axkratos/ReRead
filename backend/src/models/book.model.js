@@ -31,6 +31,10 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    sellerPhone: {
+      type: String,
+      required: true,
+    },
 
     location: {
       type: String,

@@ -32,9 +32,7 @@ const UserPosts = () => {
           }
         );
   
-        
         const filteredPosts = response.data.filter(post => post.sellerName === localStorage.getItem('User'));
-        
         setUserPosts(filteredPosts);
       } catch (error) {
         console.error('Error fetching user posts:', error);
@@ -70,9 +68,16 @@ const UserPosts = () => {
           },
         }
       );
-      console.log('Post updated successfully:', response.data);
+
+      // Update the state with the modified post
+      setUserPosts((prevPosts) => {
+        const updatedPosts = prevPosts.map((post) =>
+          post._id === selectedPostId ? response.data : post
+        );
+        return updatedPosts;
+      });
+
       setShowUpdateForm(false);
-      // You may want to fetch the user's posts again after updating
     } catch (error) {
       console.error('Error updating post:', error);
     }
@@ -81,7 +86,7 @@ const UserPosts = () => {
   const handleDeletePost = async (postId) => {
     try {
       const token = localStorage.getItem('accessToken');
-      const response = await axios.delete(
+      await axios.delete(
         `http://localhost:5001/api/v1/book/books/${postId}`,
         {
           headers: {
@@ -90,8 +95,9 @@ const UserPosts = () => {
           },
         }
       );
-      console.log('Post deleted successfully:', response.data);
-      // You may want to fetch the user's posts again after deleting
+
+      // Update the state by removing the deleted post
+      setUserPosts((prevPosts) => prevPosts.filter((post) => post._id !== postId));
     } catch (error) {
       console.error('Error deleting post:', error);
     }
