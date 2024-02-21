@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './navbar.css';
 
 const AppNavbar = () => {
   const isAuthenticated = localStorage.getItem('accessToken');
   const navigate = useNavigate();
+  const location = useLocation();
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleLogout = () => {
     // Remove data from localStorage
@@ -17,15 +19,25 @@ const AppNavbar = () => {
     navigate('/');
   };
 
+  const handleDropdownToggle = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleDropdownItemClick = (eventKey, event) => {
+    setShowDropdown(false); // Close dropdown when an item is clicked
+  };
+
+  useEffect(() => {
+    setShowDropdown(false);
+  }, [location]);
+
   return (
     <Navbar bg="light" expand="lg" className="custom-navbar">
       <Container className="horiz">
         {/* Left Side */}
         <Navbar.Brand href="/" className="logo">
-        ReRead
+          ReRead
         </Navbar.Brand>
-
-        
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -46,15 +58,15 @@ const AppNavbar = () => {
 
         {/* Right Side */}
         <Navbar.Collapse className="justify-content-end">
-          <Nav className='prayojan'>
+          <Nav className="prayojan">
             {isAuthenticated ? (
-              <NavDropdown title="User" id="basic-nav-dropdown">
-                <LinkContainer to="/message">
-                  <NavDropdown.Item>Message</NavDropdown.Item>
-                </LinkContainer>
-                <NavDropdown.Divider />
+              <NavDropdown
+                title="User"
+                id="basic-nav-dropdown"
+                 // Added onClick event to close on click
+              >
                 <LinkContainer to="/user-post">
-                  <NavDropdown.Item>Posts</NavDropdown.Item>
+                  <NavDropdown.Item eventKey="posts">Posts</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>

@@ -1,50 +1,60 @@
-/* usedbook.css */
-
+/* Overall book card container */
 .book-card {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 10px;
- 
-  margin-top: 10%;
+  margin: 20px;
 }
 
+/* Individual book card styling */
 .individual-card {
-  width: calc(25% - 16px); /* 25% width for each card with some margin between cards */
-  box-sizing: border-box; /* Include padding and border in the width calculation */
-  border: 1px solid #efe9e9;
-  border-radius: 8px;
-  padding: 1px;
-  margin: 8px; /* Adjust the margin based on your preference */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none; /* Remove default link underline */
+  transition: all 0.2s ease;
 }
 
-/* Set a maximum width for the container to center the cards when there are fewer than four */
-@media (max-width: 1024px) {
-  .book-card {
-    max-width: 50%; /* Adjust as needed */
-    margin: auto;
-  }
+.individual-card:hover {
+  transform: scale(1.05); /* Subtle hover effect */
 }
 
-/* Add specific styles for the Link */
-.individual-card a {
-  color: inherit;
-  text-decoration: none;
+/* Book image styling */
+.book-photo {
+  width: 100px;
+  height: 150px;
+  object-fit: cover; /* Ensure image fills the space */
 }
-.book-details{
-  color: rgb(2, 5, 5);
-  .book-location{
-    margin-left: -50px;
-  }
-  .book-price{
-    margin-left: -5px;
-  }
+
+/* Book details styling */
+.book-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }
+
+.book-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.book-location,
+.book-price {
+  font-size: 14px;
+  color: #888;
+}
+
+/* Additional styling based on ratings */
+
+.book-name:hover {
+  text-decoration: underline; /* Subtle hover effect on book name */
+}
+
+.book-price {
+  font-weight: bold; /* Emphasize price */
+}
+
+/* Optional styling for BookDetail component (card.jsx) */
+/* ... add your styling here ... */
